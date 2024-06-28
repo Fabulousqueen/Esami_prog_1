@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#define SIZE_STRING 20
+#define SIZE_STRING 21//bisogna comprendere anche il carattere di terminazione (20+1)
 #define SIZE_ARRAY 200
 typedef struct{
     char *input;
@@ -91,29 +91,30 @@ void createSet(record *Matrix_r){
 
 void printArray(record *Matrix_r, int k){
     
-    //PENULTIMO PUNTO 
+    
     printf("createSet()..\n");
-    printf("Lunghezza della stringa >=%d\n",1);
+    printf("Lunghezza della stringa >=%d\n",k);
     int index=1;
-    for(int i=0; i<SIZE_ARRAY; i++){
-        if(Matrix_r[i].lenght!=-1){
-            printf("printArray() [%d] [word: %s] [lenght: %d]\n",index,Matrix_r[i].key,Matrix_r[i].lenght);
-            index++;
+    if(k>=1){
+        //PENULTIMO PUNTO 
+        for(int i=0; i<SIZE_ARRAY; i++){
+            if(Matrix_r[i].lenght!=-1){
+                printf("printArray() [%d] [word: %s] [lenght: %d]\n",index,Matrix_r[i].key,Matrix_r[i].lenght);
+                index++;
+            }
         }
     }
-
-    //ULTIMO PUNTO
-    index=1;
-    printf("Lunghezza della stringa >=%d\n",k);
-    for(int i=0; i<SIZE_ARRAY; i++){
-        if(Matrix_r[i].lenght>=k){
-            printf("printArray() [%d] [word: %s] [lenght: %d]\n",index,Matrix_r[i].key,Matrix_r[i].lenght);
-            index++;
+    else{
+        //ULTIMO PUNTO
+        for(int i=0; i<SIZE_ARRAY; i++){
+            if(Matrix_r[i].lenght>=k){
+                printf("printArray() [%d] [word: %s] [lenght: %d]\n",index,Matrix_r[i].key,Matrix_r[i].lenght);
+                index++;
+            }
         }
     }
 
 }
-
 
 int main(int argc, char **argv){
 
@@ -121,6 +122,7 @@ int main(int argc, char **argv){
     record *Matrix_r=buildArray(p.input);
     filter(Matrix_r);
     createSet(Matrix_r);
+    printArray(Matrix_r,1);
     printArray(Matrix_r,p.k);
 
     free(Matrix_r);
