@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#define SIZE_STRING 21//bisogna comprendere anche il carattere di terminazione
+#define SIZE_STRING 21//bisogna comprendere anche il carattere di terminazione (20+1)
 #define SIZE_ARRAY 200
 typedef struct{
     char *input;
