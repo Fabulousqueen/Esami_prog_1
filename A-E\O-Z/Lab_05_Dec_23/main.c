@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#define SIZE 30
+#define SIZE 31//deve essere compreso il carattere di terminazione (30+1)
 typedef struct{
     char *input;
 }parameters;
@@ -65,9 +65,7 @@ char *dequeueWord(queue *q){
         exit(EXIT_FAILURE);
     }
     strncpy(word,tmp->word,SIZE);
-    
     q->head=q->head->next;
-    
     free(tmp);
 
     return word;
@@ -83,9 +81,7 @@ queue buildQueue(char *input, int *n){
 
     queue q;
     initQueue(&q);
-
     char word[SIZE];
-    
     while(fscanf(f,"%s\n",word)!=EOF){
         enqueueWord(&q,word);
         (*n)++;
@@ -144,6 +140,7 @@ void printArray(char **words, int n){
 
 }
 
+//==========INSERTION SORT==========//
 void sortArray(char **W, int n){
 
     for(int i=1; i<n; i++){
@@ -161,21 +158,8 @@ void sortArray(char **W, int n){
 /*
 //--ESERCIZI:algoritmi di ordinamento--
 
-void insertionSort(char **W, int n){
-
-    for(int i=1; i<n; i++){
-        int index=i-1;
-        char *word_tmp=W[i];
-        while(index>=0 && strcmp(W[index],word_tmp)>0){
-            W[index+1]=W[index];
-            index--;
-        }
-        W[index+1]=word_tmp;
-    }
-
-}
-
-void bubbleSort(char **W, int n){
+//==========BUBBLE SORT==========//
+void sortArray(char **W, int n){
 
     int swap=1;
 
@@ -193,7 +177,8 @@ void bubbleSort(char **W, int n){
 
 }
 
-void selectionSort(char **W, int n){
+//==========SELECTION SORT==========//
+void sortArray(char **W, int n){
 
     for(int i=0; i<n-1; i++){
         int min=i;
@@ -229,9 +214,6 @@ int main(int argc,char **argv){
     //printf("n=%d",n);
     //printQueue(q);
     char **W=buildStringArray(q,n);
-    //insertionSort(W,n);
-    //bubbleSort(W,n);
-    //selectionSort(W,n);
     sortArray(W,n);
     printArray(W,n);
 
