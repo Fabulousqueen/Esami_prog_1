@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#define STRING_LENGHT 15
+#define STRING_LENGHT 16//Bisogna includere il carattere di terminazione (16)
 typedef struct{
     char *input_file;
     int n;

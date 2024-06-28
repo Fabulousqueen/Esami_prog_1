@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#define SIZE 30
+#define SIZE 31//Bisogna includere il carattere di terminazione (30+1)
 typedef struct{
     char *input;
     int k;
