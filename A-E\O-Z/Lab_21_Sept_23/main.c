@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#define SIZE 30
+#define SIZE 31//Si deve includere il carattere di terminazione(30+1)
 typedef struct{
     char *file_name;
     int k;
@@ -91,7 +91,7 @@ int countStrings(stack top){
 }
 
 /*
-==============INSERTION SORT==============
+//==============INSERTION SORT==============//
 void sortWord(stack top, int k){
 
     while(top!=NULL){
@@ -111,7 +111,7 @@ void sortWord(stack top, int k){
     }
 
 }
-==============BUBBLE SORT==============
+//==============BUBBLE SORT==============//
 void sortWord(stack top, int k){
     
     int swap=1;
